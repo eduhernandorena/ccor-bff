@@ -2,10 +2,10 @@ const groupControler = require('../controllers/group.controller')
 let router = require('express').Router()
 
 
-router.get('/', groupControler.getAllGroup)
-router.get('/:id', groupControler.getGroupById)
-router.delete('/:id', groupControler.deleteGroup)
-router.put('/', groupControler.putGroup)
-router.post('/', groupControler.postGroup)
+router.get('/group', groupControler.getAllGroup)
+router.get('/group/:id', groupControler.getGroupById)
+router.delete('/group/:id', groupControler.deleteGroup)
+router.put('/group', groupControler.putGroup)
+router.post('/group', groupControler.postGroup)
 
 module.exports = router

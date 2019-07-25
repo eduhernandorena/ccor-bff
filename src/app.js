@@ -29,9 +29,9 @@ const ufRoutes = require('./routes/uf.routes');
 app.use(morgan('combined', { stream: pathLogFile }));
 
 //set o endpoint da rotas
-app.use('/addresstype', addressTypeRoutes);
-app.use('/group', groupRoutes);
-app.use('/uf', ufRoutes);
-app.use('/caee', caeeRoutes);
+app.use('/', addressTypeRoutes);
+app.use('/', groupRoutes);
+app.use('/', ufRoutes);
+app.use('/', caeeRoutes);
 
 module.exports = app

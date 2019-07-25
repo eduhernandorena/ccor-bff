@@ -13,6 +13,7 @@ exports.getAddressTypeById = async (req, res, next) =>{
 
 exports.deleteAddressType = async (req, res, next) =>{
     let id = req.params.id
+    console.log('choegou')
     await addressTypeService.deleteAddressType(id)
         .then(response =>{
             res.status(200).json(response)

@@ -2,7 +2,7 @@ const genericFiergs = require('../genericFunction/functionFiergs')
 
 exports.getAllUf = async () => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.getData(process.env.URL_LOCAL)
+        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_UF)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
@@ -10,7 +10,7 @@ exports.getAllUf = async () => {
 
 exports.getUfById = async (id) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.getDataWithId(process.env.URL_LOCAL, id)
+        await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_UF, id)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
@@ -18,7 +18,7 @@ exports.getUfById = async (id) => {
 
 exports.deleteUf = async (id) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.deleteWithId(process.env.URL_LOCAL, id)
+        await genericFiergs.deleteWithId(process.env.URL_LOCAL, process.env.PATH_UF, id)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
@@ -26,7 +26,7 @@ exports.deleteUf = async (id) => {
 
 exports.postUf = async (data) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.postData(process.env.URL_LOCAL, data)
+        await genericFiergs.postData(process.env.URL_LOCAL, process.env.PATH_UF, data)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
@@ -34,7 +34,7 @@ exports.postUf = async (data) => {
 
 exports.putUf = async (data) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.putData(process.env.URL_LOCAL, process.env.PATH_GROUP, data)
+        await genericFiergs.putData(process.env.URL_LOCAL, process.env.PATH_UF, data)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
