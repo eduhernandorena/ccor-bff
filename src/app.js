@@ -23,6 +23,7 @@ const addressTypeRoutes = require('./routes/addresstype.routes');
 const groupRoutes = require('./routes/group.routes');
 const caeeRoutes = require('./routes/caee.routes');
 const ufRoutes = require('./routes/uf.routes');
+const civilStatusRoutes = require('./routes/civilstatus.routes');
 
 
 // API de Log de acessos a informação
@@ -33,5 +34,6 @@ app.use('/addresstype', addressTypeRoutes);
 app.use('/group', groupRoutes);
 app.use('/uf', ufRoutes);
 app.use('/caee', caeeRoutes);
+app.use('/', civilStatusRoutes);
 
 module.exports = app
