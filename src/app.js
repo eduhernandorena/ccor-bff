@@ -30,10 +30,10 @@ const civilStatusRoutes = require('./routes/civilstatus.routes');
 app.use(morgan('combined', { stream: pathLogFile }));
 
 //set o endpoint da rotas
-app.use('/addresstype', addressTypeRoutes);
-app.use('/group', groupRoutes);
-app.use('/uf', ufRoutes);
-app.use('/caee', caeeRoutes);
-app.use('/civilstatus', civilStatusRoutes);
+app.use('/', addressTypeRoutes);
+app.use('/', groupRoutes);
+app.use('/', ufRoutes);
+app.use('/', caeeRoutes);
+app.use('/', civilStatusRoutes);
 
 module.exports = app
