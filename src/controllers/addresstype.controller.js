@@ -11,6 +11,17 @@ exports.getAddressTypeById = async (req, res, next) =>{
         })
 }
 
+exports.getAddressTypeByName = async (req, res, next) => {
+    let name = req.params.name
+    await addressTypeService.getAddressTypeByName(name)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
 exports.deleteAddressType = async (req, res, next) =>{
     let id = req.params.id
     console.log('choegou')
@@ -29,6 +40,17 @@ exports.getAllAddressType = async (req, res, next) =>{
             res.status(200).json(response)
         })
         .catch(error =>{
+            console.log(error)
+        })
+}
+
+exports.getAllAddressTypeActive = async (req, res, next) => {
+    let active = req.params.active
+    await addressTypeService.getAllAddressTypeActive(active)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
             console.log(error)
         })
 }

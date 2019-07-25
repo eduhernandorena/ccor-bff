@@ -18,6 +18,23 @@ exports.getAddressTypeById = async (id) => {
 
 };
 
+exports.getAddressTypeByName = async (name) => {
+    let result;
+    if (name) {
+        await addressTypeRepository.getAddressTypeByName(name)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
 exports.deleteAddressType = async (id) => {
     let result;
     if (id) {
@@ -39,6 +56,18 @@ exports.deleteAddressType = async (id) => {
 exports.getAllAddressType = async () => {
     let result;
     await addressTypeRepository.getAllAddressType()
+        .then(response => {
+            result = response
+        })
+        .catch(error => {
+            return error
+        });
+    return result;
+};
+
+exports.getAllAddressTypeActive = async (active) => {
+    let result;
+    await addressTypeRepository.getAllAddressTypeActive(active)
         .then(response => {
             result = response
         })

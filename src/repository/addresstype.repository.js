@@ -8,9 +8,25 @@ exports.getAllAddressType = async () => {
     })
 }
 
+exports.getAllAddressTypeActive = async (active) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE + '/active', active)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
 exports.getAddressTypeById = async (id) => {
     return new Promise(async (resolve, reject) => {
         await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE, id)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
+exports.getAddressTypeByName = async (name) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE + '/name/', name)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
