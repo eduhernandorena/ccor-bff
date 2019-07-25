@@ -16,9 +16,25 @@ exports.getAddressTypeById = async (id) => {
     })
 }
 
+exports.deleteAddressType = async (id) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.deleteWithId(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE, id)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
 exports.postAddressType = async (data) => {
     return new Promise(async (resolve, reject) => {
         await genericFiergs.postData(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE, data)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
+exports.putAddressType = async (data) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.putData(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE, data)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })

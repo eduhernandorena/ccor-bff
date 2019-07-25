@@ -78,9 +78,9 @@ let tool = {
         return result;
     },
 
-    putData: async function(url, path, user, pass, data, id){
+    putData: async function(url, path, id, data){
         let result;
-        await putFunc(url, path, user, pass, data, id).then(response =>{
+        await putFunc(url, path, id, data).then(response =>{
             result = response
         });
         return result;
@@ -111,9 +111,9 @@ let tool = {
         return result;
     },
 
-    deleteWithId: async function(url, path, user, pass, id){
+    deleteWithId: async function(url, path, id){
         let result;
-        await deleteFuncWithId(url, path, user, pass, id).then(response =>{
+        await deleteFuncWithId(url, path, id).then(response =>{
             result = response;
         })
 
@@ -160,10 +160,9 @@ async function getFuncTwoParams(url, path, user, pass, param1, param2){
     return defered.promise;
 }
 
-async function deleteFuncWithId(url, path, user, pass, id){
+async function deleteFuncWithId(url, path, id){
     let defered = Q.defer();
-    await request.delete(url+path+id,
-        tool.montaAuth(user, pass), (error, response)=>{
+    await request.delete(url+path+id, (error, response)=>{
             response ? defered.resolve(tool.validateHttpCodes(response)) : defered.reject(tool.validateHttpCodes(error));
         }
     );
@@ -209,10 +208,10 @@ async function postFunc(url, path, data){
     return defered.promise;
 }
 
-async function putFunc(url, path, user, pass, data, id){
+async function putFunc(url, path, data){
     let defered = Q.defer();
-    await request.put(url+path+id,
-        tool.montaAuthComBody(user, pass, data), (error, response)=>{
+    await request.put(url+path,
+        tool.montaBody(data), (error, response)=>{
             response ? defered.resolve(tool.validateHttpCodes(response)) : defered.reject(tool.validateHttpCodes(error));
         }
     );
