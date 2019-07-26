@@ -8,6 +8,14 @@ exports.getAllLegalConstitution = async () => {
     })
 }
 
+exports.getAllLegalConstitutionActive = async (active) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_LEGALCONSTITUTION + '/active', active)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
 exports.getLegalConstitutionById = async (id) => {
     return new Promise(async (resolve, reject) => {
         await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_LEGALCONSTITUTION, id)
@@ -19,6 +27,14 @@ exports.getLegalConstitutionById = async (id) => {
 exports.deleteLegalConstitution = async (id) => {
     return new Promise(async (resolve, reject) => {
         await genericFiergs.deleteWithId(process.env.URL_LOCAL, process.env.PATH_LEGALCONSTITUTION, id)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
+exports.getLegalConstitutionByName = async (name) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_LEGALCONSTITUTION + '/name/', name)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
