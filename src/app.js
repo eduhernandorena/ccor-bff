@@ -26,6 +26,7 @@ const stateRoutes = require('./routes/state.routes');
 const civilStatusRoutes = require('./routes/civilstatus.routes');
 const legalConstitutionRoutes = require('./routes/legalconstitution.routes');
 const countryRoutes = require('./routes/country.routes');
+const scholarityRoutes = require('./routes/scholarity.routes');
 
 
 // API de Log de acessos a informação
@@ -39,5 +40,6 @@ app.use('/', caeeRoutes);
 app.use('/', civilStatusRoutes);
 app.use('/', legalConstitutionRoutes);
 app.use('/', countryRoutes);
+app.use('/', scholarityRoutes);
 
 module.exports = app
