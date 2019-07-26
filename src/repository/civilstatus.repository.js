@@ -8,9 +8,25 @@ exports.getAllCivilStatus = async () => {
     })
 }
 
+exports.getAllCivilStatusActive = async (active) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_CIVILSTATUS + '/active', active)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
 exports.getCivilStatusById = async (id) => {
     return new Promise(async (resolve, reject) => {
         await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_CIVILSTATUS, id)
+            .then(response => resolve(response))
+            .catch(error => reject(error))
+    })
+}
+
+exports.getCivilStatusByName = async (name) => {
+    return new Promise(async (resolve, reject) => {
+        await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_CIVILSTATUS + '/name/', name)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })

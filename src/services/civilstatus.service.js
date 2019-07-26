@@ -18,6 +18,23 @@ exports.getCivilStatusById = async (id) => {
 
 };
 
+exports.getCivilStatusByName = async (name) => {
+    let result;
+    if (name) {
+        await civilStatusRepository.getCivilStatusByName(name)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
 exports.deleteCivilStatus = async (id) => {
     let result;
     if (id) {
@@ -39,6 +56,18 @@ exports.deleteCivilStatus = async (id) => {
 exports.getAllCivilStatus = async () => {
     let result;
     await civilStatusRepository.getAllCivilStatus()
+        .then(response => {
+            result = response
+        })
+        .catch(error => {
+            return error
+        });
+    return result;
+};
+
+exports.getAllCivilStatusActive = async (active) => {
+    let result;
+    await civilStatusRepository.getAllCivilStatusActive(active)
         .then(response => {
             result = response
         })
