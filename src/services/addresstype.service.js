@@ -65,9 +65,9 @@ exports.getAllAddressType = async () => {
     return result;
 };
 
-exports.getAllAddressTypeActive = async (active) => {
+exports.getAllAddressTypeActive = async () => {
     let result;
-    await addressTypeRepository.getAllAddressTypeActive(active)
+    await addressTypeRepository.getAllAddressTypeActive()
         .then(response => {
             result = response
         })

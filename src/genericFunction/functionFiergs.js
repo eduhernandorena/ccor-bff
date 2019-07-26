@@ -92,9 +92,9 @@ let tool = {
         });
         return result;
     },
-    getDataTwoParams: async function(url, path, user, pass, param1, param2){
+    getDataTwoParams: async function(url, path, param1, param2){
         let result;
-        await getFuncTwoParams(url, path, user, pass, param1, param2).then(response =>{
+        await getFuncTwoParams(url, path, param1, param2).then(response =>{
             result = response
         });
         return result;
@@ -150,10 +150,9 @@ async function getFuncWithId(url, path, id){
     return defered.promise;
 }
 
-async function getFuncTwoParams(url, path, user, pass, param1, param2){
+async function getFuncTwoParams(url, path, param1, param2){
     let defered = Q.defer();
-    await request.get(url+path+param1+'/'+param2,
-        tool.montaAuth(user, pass), (error, response)=>{
+    await request.get(url+path+param1+'/'+param2, (error, response)=>{
             response ? defered.resolve(tool.validateHttpCodes(response)) : defered.reject(tool.validateHttpCodes(error));
         }
     );
@@ -197,9 +196,6 @@ async function getWithIdAndPagination(url, path, user, pass, idName, id, dataStr
 
 async function postFunc(url, path, data){
     let defered = Q.defer();
-    console.log(
-        tool.montaBody(data)
-    )
     await request.post(url+path,
         tool.montaBody(data), (error, response)=>{
             response ? defered.resolve(tool.validateHttpCodes(response)) : defered.reject(tool.validateHttpCodes(error));
