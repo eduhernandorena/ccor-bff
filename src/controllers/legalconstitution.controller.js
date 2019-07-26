@@ -11,6 +11,17 @@ exports.getLegalConstitutionById = async (req, res, next) =>{
         })
 }
 
+exports.getLegalConstitutionByName = async (req, res, next) => {
+    let name = req.params.name
+    await legalConstitution.getLegalConstitutionByName(name)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
 exports.deleteLegalConstitution = async (req, res, next) =>{
     let id = req.params.id
     await legalConstitution.deleteLegalConstitution(id)
@@ -28,6 +39,17 @@ exports.getAllLegalConstitution = async (req, res, next) =>{
             res.status(200).json(response)
         })
         .catch(error =>{
+            console.log(error)
+        })
+}
+
+exports.getAllLegalConstitutionActive = async (req, res, next) => {
+    let active = req.params.active
+    await legalConstitution.getAllLegalConstitutionActive(active)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
             console.log(error)
         })
 }

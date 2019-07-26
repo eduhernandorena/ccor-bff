@@ -18,6 +18,23 @@ exports.getLegalConstitutionById = async (id) => {
 
 };
 
+exports.getLegalConstitutionByName = async (name) => {
+    let result;
+    if (name) {
+        await legalConstitutionRepository.getLegalConstitutionByName(name)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
 exports.deleteLegalConstitution = async (id) => {
     let result;
     if (id) {
@@ -39,6 +56,18 @@ exports.deleteLegalConstitution = async (id) => {
 exports.getAllLegalConstitution = async () => {
     let result;
     await legalConstitutionRepository.getAllLegalConstitution()
+        .then(response => {
+            result = response
+        })
+        .catch(error => {
+            return error
+        });
+    return result;
+};
+
+exports.getAllLegalConstitutionActive = async (active) => {
+    let result;
+    await legalConstitutionRepository.getAllLegalConstitutionActive(active)
         .then(response => {
             result = response
         })
