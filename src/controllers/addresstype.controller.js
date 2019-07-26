@@ -45,8 +45,7 @@ exports.getAllAddressType = async (req, res, next) =>{
 }
 
 exports.getAllAddressTypeActive = async (req, res, next) => {
-    let active = req.params.active
-    await addressTypeService.getAllAddressTypeActive(active)
+    await addressTypeService.getAllAddressTypeActive()
         .then(response => {
             res.status(200).json(response)
         })

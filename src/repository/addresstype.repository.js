@@ -8,9 +8,9 @@ exports.getAllAddressType = async () => {
     })
 }
 
-exports.getAllAddressTypeActive = async (active) => {
+exports.getAllAddressTypeActive = async () => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE + '/active', active)
+        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_ADDRESSTYPE + '/active')
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
