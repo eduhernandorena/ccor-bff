@@ -18,6 +18,57 @@ exports.getCaeeById = async (id) => {
 
 };
 
+exports.getCaeeByName = async (name) => {
+    let result;
+    if (name) {
+        await caeeRepository.getCaeeByName(name)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
+exports.getCaeeByCode = async (code) => {
+    let result;
+    if (code) {
+        await caeeRepository.getCaeeByCode(code)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
+exports.getCaeeByCodeAndName = async (code, name) => {
+    let result;
+    if (id) {
+        await caeeRepository.getCaeeByCodeAndName(code, name)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
 exports.deleteCaee = async (id) => {
     let result;
     if (id) {
@@ -39,6 +90,18 @@ exports.deleteCaee = async (id) => {
 exports.getAllCaee = async () => {
     let result;
     await caeeRepository.getAllCaee()
+        .then(response => {
+            result = response
+        })
+        .catch(error => {
+            return error
+        });
+    return result;
+};
+
+exports.getAllCaeeActive = async () => {
+    let result;
+    await caeeRepository.getAllCaeeActive()
         .then(response => {
             result = response
         })
