@@ -1,40 +1,40 @@
 const genericFiergs = require('../genericFunction/functionFiergs')
 
-exports.getAllUf = async () => {
+exports.getAllState = async () => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_UF)
+        await genericFiergs.getData(process.env.URL_LOCAL, process.env.PATH_STATE)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
 }
 
-exports.getUfById = async (id) => {
+exports.getStateById = async (id) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_UF, id)
+        await genericFiergs.getDataWithId(process.env.URL_LOCAL, process.env.PATH_STATE, id)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
 }
 
-exports.deleteUf = async (id) => {
+exports.deleteState = async (id) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.deleteWithId(process.env.URL_LOCAL, process.env.PATH_UF, id)
+        await genericFiergs.deleteWithId(process.env.URL_LOCAL, process.env.PATH_STATE, id)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
 }
 
-exports.postUf = async (data) => {
+exports.postState = async (data) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.postData(process.env.URL_LOCAL, process.env.PATH_UF, data)
+        await genericFiergs.postData(process.env.URL_LOCAL, process.env.PATH_STATE, data)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })
 }
 
-exports.putUf = async (data) => {
+exports.putState = async (data) => {
     return new Promise(async (resolve, reject) => {
-        await genericFiergs.putData(process.env.URL_LOCAL, process.env.PATH_UF, data)
+        await genericFiergs.putData(process.env.URL_LOCAL, process.env.PATH_STATE, data)
             .then(response => resolve(response))
             .catch(error => reject(error))
     })

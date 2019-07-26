@@ -1,8 +1,8 @@
-const ufService = require('../services/uf.service')
+const stateService = require('../services/state.service')
 
-exports.getUfById = async (req, res, next) =>{
+exports.getStateById = async (req, res, next) =>{
     let id = req.params.id
-    await ufService.getUfById(id)
+    await stateService.getStateById(id)
         .then(response =>{
             res.status(200).json(response)
         })
@@ -11,9 +11,9 @@ exports.getUfById = async (req, res, next) =>{
         })
 }
 
-exports.deleteUf = async (req, res, next) =>{
+exports.deleteState = async (req, res, next) =>{
     let id = req.params.id
-    await ufService.deleteUf(id)
+    await stateService.deleteState(id)
         .then(response =>{
             res.status(200).json(response)
         })
@@ -22,8 +22,8 @@ exports.deleteUf = async (req, res, next) =>{
         })
 }
 
-exports.getAllUf = async (req, res, next) =>{
-    await ufService.getAllUf()
+exports.getAllState = async (req, res, next) =>{
+    await stateService.getAllState()
         .then(response =>{
             res.status(200).json(response)
         })
@@ -32,9 +32,9 @@ exports.getAllUf = async (req, res, next) =>{
         })
 }
 
-exports.postUf = async (req, res, next) =>{
-    let uf = req.body;
-    await ufService.postUf(uf)
+exports.postState = async (req, res, next) =>{
+    let state = req.body;
+    await stateService.postState(state)
         .then(response =>{
             res.status(200).json(response)
         })
@@ -43,9 +43,9 @@ exports.postUf = async (req, res, next) =>{
         })
 }
 
-exports.putUf = async (req, res, next) =>{
-    let uf = req.body;
-    await ufService.putUf(uf)
+exports.putState = async (req, res, next) =>{
+    let state = req.body;
+    await stateService.putState(state)
         .then(response =>{
             res.status(200).json(response)
         })

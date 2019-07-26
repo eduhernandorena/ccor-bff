@@ -22,9 +22,10 @@ app.disable('x-powered-by');
 const addressTypeRoutes = require('./routes/addresstype.routes');
 const groupRoutes = require('./routes/group.routes');
 const caeeRoutes = require('./routes/caee.routes');
-const ufRoutes = require('./routes/uf.routes');
+const stateRoutes = require('./routes/state.routes');
 const civilStatusRoutes = require('./routes/civilstatus.routes');
 const legalConstitutionRoutes = require('./routes/legalconstitution.routes');
+const countryRoutes = require('./routes/country.routes');
 
 
 // API de Log de acessos a informação
@@ -33,9 +34,10 @@ app.use(morgan('combined', { stream: pathLogFile }));
 //set o endpoint da rotas
 app.use('/', addressTypeRoutes);
 app.use('/', groupRoutes);
-app.use('/', ufRoutes);
+app.use('/', stateRoutes);
 app.use('/', caeeRoutes);
 app.use('/', civilStatusRoutes);
 app.use('/', legalConstitutionRoutes);
+app.use('/', countryRoutes);
 
 module.exports = app

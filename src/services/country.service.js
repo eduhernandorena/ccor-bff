@@ -1,10 +1,10 @@
-const ufRepository = require('../repository/uf.repository')
+const countryRepository = require('../repository/country.repository')
 const msgWarnings = require('../genericFunction/mensagens.fiergs')
 
-exports.getUfById = async (id) => {
+exports.getCountryById = async (id) => {
     let result;
     if (id) {
-        await ufRepository.getUfById(id)
+        await countryRepository.getCountryById(id)
             .then(response => {
                 result = response
             })
@@ -18,10 +18,27 @@ exports.getUfById = async (id) => {
 
 };
 
-exports.deleteUf = async (id) => {
+exports.getCountryByName = async (name) => {
+    let result;
+    if (name) {
+        await countryRepository.getCountryByName(name)
+            .then(response => {
+                result = response
+            })
+            .catch(error => {
+                return error
+            })
+    } else {
+        result = msgWarnings.mensagemDadosIncompletos
+    }
+    return result
+
+};
+
+exports.deleteCountry = async (id) => {
     let result;
     if (id) {
-        await ufRepository.deleteUf(id)
+        await countryRepository.deleteCountry(id)
             .then(response => {
                 result = response
                 console.log(result)
@@ -36,9 +53,9 @@ exports.deleteUf = async (id) => {
 
 };
 
-exports.getAllUf = async () => {
+exports.getAllCountry = async () => {
     let result;
-    await ufRepository.getAllUf()
+    await countryRepository.getAllCountry()
         .then(response => {
             result = response
         })
@@ -48,10 +65,22 @@ exports.getAllUf = async () => {
     return result;
 };
 
-exports.postUf = async (uf) => {
+exports.getAllCountryActive = async (active) => {
     let result;
-    if (uf) {
-        await ufRepository.postUf(uf)
+    await countryRepository.getAllCountryActive(active)
+        .then(response => {
+            result = response
+        })
+        .catch(error => {
+            return error
+        });
+    return result;
+};
+
+exports.postCountry = async (country) => {
+    let result;
+    if (country) {
+        await countryRepository.postCountry(country)
             .then(response => {
                 result = response
             })
@@ -65,10 +94,10 @@ exports.postUf = async (uf) => {
 
 };
 
-exports.putUf = async (uf) => {
+exports.putCountry = async (country) => {
     let result;
-    if (uf) {
-        await ufRepository.putUf(uf)
+    if (country) {
+        await countryRepository.putCountry(country)
             .then(response => {
                 result = response
             })
