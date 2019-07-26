@@ -11,6 +11,17 @@ exports.getCivilStatusById = async (req, res, next) =>{
         })
 }
 
+exports.getCivilStatusByName = async (req, res, next) => {
+    let name = req.params.name
+    await civilStatusService.getCivilStatusByName(name)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
+
 exports.deleteCivilStatus = async (req, res, next) =>{
     let id = req.params.id
     await civilStatusService.deleteCivilStatus(id)
@@ -28,6 +39,17 @@ exports.getAllCivilStatus = async (req, res, next) =>{
             res.status(200).json(response)
         })
         .catch(error =>{
+            console.log(error)
+        })
+}
+
+exports.getAllCivilStatusActive = async (req, res, next) => {
+    let active = req.params.active
+    await civilStatusService.getAllCivilStatusActive(active)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
             console.log(error)
         })
 }
