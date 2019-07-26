@@ -10,7 +10,7 @@ const path = require('path');
 const fs = require('fs');
 
 
-let pathLogFile = fs.createWriteStream(path.join(__dirname, 'logFile.log'), {flags : 'a'})
+// let pathLogFile = fs.createWriteStream(path.join(__dirname, 'logFile.log'), {flags : 'a'})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,8 +28,8 @@ const legalConstitutionRoutes = require('./routes/legalconstitution.routes');
 const countryRoutes = require('./routes/country.routes');
 
 
-// API de Log de acessos a informação
-app.use(morgan('combined', { stream: pathLogFile }));
+// // API de Log de acessos a informação
+// app.use(morgan('combined', { stream: pathLogFile }));
 
 //set o endpoint da rotas
 app.use('/', addressTypeRoutes);
